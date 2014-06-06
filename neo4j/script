@@ -1,0 +1,12 @@
+
+
+
+
+----------------------------------------SCRIPT FINAL ----------------------------------------------------------------------------
+ for ARQ in *; do echo $ARQ; mv "$ARQ" "$ARQ.bak"; sed -e 's/\r//g' -e '1,25!d' -e 's/"//g' -e 's/;;*/;/g' -e 's/$/;;;;;;/g' -e '/^[0-9]B/d' -e 's/A;/;/g' -e '1d' -e '/^Vertical/s/^/DG 02;\n/g' -e '/---/d' -e 's/ //g' -e '/^Par;Identifi/d' -e '/^Interliga/s/;;*/;/' -e 's/A\//\//g' -e 's/Vertical/Vertical;/g' -e 's/Krone/Krone;/g' -e 's/:/;/g' -e '/^[0-9]/s/^/#;/g' "$ARQ.bak" > "$ARQ"; done
+
+
+
+
+
+
