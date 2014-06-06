@@ -1,0 +1,13 @@
+ 
+===== SCRIPT PARA FORMATAR OS ARQUIVOS =========
+
+ for ARQ in *; do echo $ARQ; mv "$ARQ" "$ARQ.bak"; sed -e 's/\r//g' -e '1,25!d' -e 's/"//g' -e 's/;;*/;/g' -e 's/$/;;;;;;/g' -e '/^[0-9]B/d' -e 's/A;/;/g' -e '1d' -e '/^Vertical/s/^/DG 02;\n/g' -e '/---/d' -e 's/ //g' -e '/^Par;Identifi/d' -e '/^Interliga/s/;;*/;/' -e 's/A\//\//g' -e 's/Vertical/Vertical;/g' -e 's/Krone/Krone;/g' -e 's/:/;/g' -e '/^[0-9]/s/^/#;/g' "$ARQ.bak" > "$ARQ"; done
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+ 
+Este script formata um arquivo de bloco em formato  csv para que ele sirva de entrada para o programa
+obs: o escript foi criado em linux, portanto recomenda-se que o mesmo seja executado em uma maquina linux
+
+O script deve ser executado pelo terminal linux dentro de uma pasta contendo somente os arquivos em csv dos blocos
